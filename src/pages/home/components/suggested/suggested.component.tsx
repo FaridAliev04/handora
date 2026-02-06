@@ -35,7 +35,7 @@ const SuggestedComponent = () => {
               <div className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
                   <img
-                    src={product.product_image}
+                    // src={product.product_image}
                     className="h-full w-full object-cover object-center"
                   />
                   {product.is_sale && (
@@ -51,14 +51,14 @@ const SuggestedComponent = () => {
                       {product.name_az}
                     </h3>
                     <p className="mt-1 text-sm text-gray-500 ">
-                      {product.brand_name}
+                      {product.brand.name}
                     </p>
                   </div>
                   <div className="flex flex-col items-end">
-                    {product.product_price && product.discount_price > 0 ? (
+                    {product.price && product.discount_price > 0 ? (
                       <>
                         <span className="text-xs text-gray-400 line-through decoration-gray-500">
-                          {product.product_price} ₼
+                          {product.price} ₼
                         </span>
                         <span className="text-sm font-bold text-red-600">
                           {product.discount_price} ₼
