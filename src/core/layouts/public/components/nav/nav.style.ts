@@ -16,8 +16,8 @@ const styles = {
         // padding:"2rem"
     },
     handora_logo:{
-        width: '60px',
-        height: '60px',
+        width: '80px',
+        height: '80px',
         color: colors.dark_green
     },
     search_div:{
