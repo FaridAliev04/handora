@@ -6,7 +6,7 @@ const PublicComponets = () => {
     return (
         <div>
             <NavComponet/>
-            <ListComponent/>
+            {/* <ListComponent/> */}
             <Outlet />
         </div>
     );
