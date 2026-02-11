@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Typography, message, ConfigProvider, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSignInMutation } from './action/sign_in.mutation';
 import img from '../../../assets/image/icons/Tablet login-bro.svg';
@@ -9,22 +9,22 @@ import img from '../../../assets/image/icons/Tablet login-bro.svg';
 const { Title, Text } = Typography;
 
 const SignInComponent = () => {
-  const navigate = useNavigate();
   const { mutate, isPending } = useSignInMutation();
-
+ const [messageApi, contextHolder] = message.useMessage();
   const onFinish = (values: any) => {
     mutate(values, {
       onSuccess: (res) => {
-        message.success('Giriş uğurla tamamlandı!');
+        messageApi.success('Giriş uğurla tamamlandı!');
         localStorage.setItem('token', res.access_token);
-        navigate('/');
+        window.location.href = '/'
       },
-      onError: () => message.error('Email və ya şifrə yanlışdır!'),
+      onError: () => messageApi.error('Email və ya şifrə yanlışdır!'),
     });
   };
 
   return (
     <div style={styles.pageWrapper}>
+      {contextHolder}
       <div style={styles.mainContainer}>
         <Row style={{ width: '100%', minHeight: '100%' }}>
             <Col xs={0} md={12} lg={13}>
@@ -178,3 +178,4 @@ const styles: { [key: string]: React.CSSProperties } = {
 };
 
 export default SignInComponent;
+

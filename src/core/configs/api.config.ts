@@ -1,7 +1,8 @@
 export const API = {
-    products: '/api/products',
+    suggestion: '/api/suggestion/',
     search:'/api/products/search'  ,
     login:'/api/auth/login',
-    register:'/api/auth/register'
-    // product:'/product'
+    register:'/api/auth/register',
+    user:'/api/users/me',
+    product:'/api/products'
 };

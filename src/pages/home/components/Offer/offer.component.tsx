@@ -1,35 +1,49 @@
-import { Input, Space } from 'antd';
+import { Input, Space, Button } from 'antd';
 import { useOfferStyle } from './offer.styles';
+import offer_img from '../../../../assets/image/statics/offer.jpg';
 
 const { TextArea } = Input;
 
 const OfferComponent = () => {
-    const classes=useOfferStyle()
+  const classes = useOfferStyle();
+
   return (
-    <div className={`mx-auto max-w-7xl px-4 py-16 d-flex ${classes.main_div}`}>
-      <div >
-        <h1 className="text-3xl font-bold mb-10">Tekliflerinizi Qeyd edin</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum
-          blanditiis fugiat aut eum eveniet velit iure nulla quas repudiandae
-          odit. Esse necessitatibus voluptatibus atque quod. Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Quisquam, nulla.
-        </p>
+    <div className={`mx-auto max-w-7xl ${classes.main_div}`}>
+      <h1>Təklif ve Iradlariniz ucun </h1>
+      <div className={classes.image_wrapper}>
+        <img src={offer_img} alt="Offer background" />
       </div>
 
-      <div style={{ marginTop: '20px', maxWidth: '400px' }}>
-        <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+      <div className={classes.form_container}>
+        <h2 className={classes.title}>Bizə Təklif Yazın</h2>
+        
+        <Space direction="vertical" size="large" style={{ display: 'flex' }}>
           <Input 
             type="email" 
-            placeholder="Email ünvanınızı daxil edin" 
-            size="large" 
+            placeholder="Email ünvanınız" 
+            size="large"
+            style={{ borderRadius: '8px' }}
           />
           <TextArea 
-            rows={4} 
+            rows={5} 
             placeholder="Təklifinizi bura yazın..." 
             maxLength={500} 
             showCount 
+            style={{ borderRadius: '8px', resize: 'none' }}
           />
+          <Button 
+            type="primary" 
+            size="large" 
+            block
+            style={{ 
+              borderRadius: '8px', 
+              height: '45px', 
+              backgroundColor: '#333', 
+              borderColor: '#333' 
+            }}
+          >
+            Təklifi Göndər
+          </Button>
         </Space>
       </div>
     </div>

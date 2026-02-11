@@ -4,10 +4,13 @@ import { usesuggestedStyle } from "./suggested.style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Heart } from "lucide-react"; 
+import { useNavigate } from "react-router-dom";
 
 const SuggestedComponent = () => {
   const classes = usesuggestedStyle();
   const { data } = useSuggested();
+  const navigate=useNavigate()
+  console.log("img",data)
 
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
 
@@ -22,6 +25,10 @@ const SuggestedComponent = () => {
         : [...prev, id] 
     );
   };
+
+  const productClick=(e:number)=>{
+      navigate(`/products/${e}`)
+  }
 
   return (
     <div className="bg-white">
@@ -51,10 +58,10 @@ const SuggestedComponent = () => {
 
             return (
               <SwiperSlide key={product.id}>
-                <div className="group relative">
+                <div onClick={()=>productClick(product.id)} className="group relative">
                   <div className="relative h-80 w-full overflow-hidden rounded-md bg-gray-200">
                     <img
-                      src={product.product_image}
+                      src={`https://handora-handora.nfa4yl.easypanel.host/${product.image_urls[0]}`}
                       alt={product.name_az}
                       className="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity"
                     />

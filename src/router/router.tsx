@@ -4,6 +4,8 @@ import PublicComponets from "../core/layouts/public/public.components";
 import HomeComponent from "../pages/home/home.component";
 import SignInComponent from "../pages/login/sign_in/sign_in.component";
 import RegisterComponents from "../pages/login/register/register.component";
+import ProductsComponent from "../pages/home/components/products/products.components";
+import HandProductComponent from "../pages/product/product.component";
 
 
 const router = createBrowserRouter([
@@ -43,6 +45,19 @@ const router = createBrowserRouter([
            
         ]
     },
+    {
+        path: Routes.product,
+        element: <PublicComponets />,
+        children: [
+            {
+                index: true,
+                element: <HandProductComponent/>
+
+            },
+           
+        ]
+    },
+
 
 ])
 

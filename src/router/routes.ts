@@ -1,7 +1,10 @@
 export const Routes = {
     default: '/',
     login:'/login',
-    register:'/register'
+    register:'/register',
+    product:'/products/:id',
+    // product:'/product'
+
 } as const;
 
 export type RouteKey = keyof typeof Routes;
